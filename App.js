@@ -27,8 +27,9 @@ export default function App() {
       text:notes,
       time:unwrappedTimestamp
     }]);
-    
   }
+
+  
 
   return (
     <View style={styles.container}>
