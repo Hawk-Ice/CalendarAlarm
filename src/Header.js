@@ -15,7 +15,6 @@ const Header =({handleAddItem}) => {
 
     const [isModalOpen, setModalOpen] = useState(false);
     /** MAIN FUNCTIONS */
-
     useEffect(() => {
       console.log({isModalOpen});
     }, [isModalOpen]);
@@ -27,7 +26,6 @@ const Header =({handleAddItem}) => {
     const InputModal = (props)=> {
       return (
         <View  visible={props.visible}>
-
           {/* formik */}
           <Formik
             initialValues={{

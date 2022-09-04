@@ -5,6 +5,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import Header from './src/Header';
 import AlarmList from './src/AlarmList';
 
+import AlarmModule from './src/AlarmModule';
 // type Employee = {
 //   [key: string]: any;
 //   age?: number;
@@ -15,6 +16,11 @@ export default function App() {
   // MAIN DATA
   const [alarmList, modifyAlarmList] = useState([]);
 
+  const showToast = async ()=>{
+    // AlarmModule.showToast('hahaha');
+
+     await AlarmModule.notifyAlarm("1662297870000");
+  }
   // add update
   const addItem = (props) =>{
     const {notes, timestamp} = Object(props);
@@ -29,8 +35,6 @@ export default function App() {
     }]);
   }
 
-  
-
   return (
     <View style={styles.container}>
         <Header handleAddItem={addItem}/>
@@ -38,6 +42,7 @@ export default function App() {
         <Button
             title="Add Alarm Test"
             color="red"
+            onPress={showToast}
             />
         <AlarmList data={alarmList}/>
         
