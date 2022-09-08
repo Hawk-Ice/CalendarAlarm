@@ -15,12 +15,13 @@ import AlarmModule from './src/AlarmModule';
 export default function App() {
   // MAIN DATA
   const [alarmList, modifyAlarmList] = useState([]);
+  
 
-  const showToast = async ()=>{
-    // AlarmModule.showToast('hahaha');
-
-     await AlarmModule.notifyAlarm("1662297870000");
-  }
+  // const showToast = async (alarmTime)=>{
+  //   var currentTime = Math.floor(new Date().getTime()/1000.0);
+  //   if(currentTime>)
+  //    await AlarmModule.notifyAlarm(alarmTime);
+  // }
   // add update
   const addItem = (props) =>{
     const {notes, timestamp} = Object(props);
@@ -35,6 +36,15 @@ export default function App() {
     }]);
   }
 
+  const addSampleItem = (props) =>{
+    modifyAlarmList(alarmList=>[...alarmList,{
+      id:alarmList.length,
+      text:"notes"+alarmList.length,
+      time:"unwrappedTimestamp"+alarmList.length,
+      isEnabled:false,
+    }]);
+  }
+
   return (
     <View style={styles.container}>
         <Header handleAddItem={addItem}/>
@@ -42,7 +52,7 @@ export default function App() {
         <Button
             title="Add Alarm Test"
             color="red"
-            onPress={showToast}
+            onPress={addSampleItem}
             />
         <AlarmList data={alarmList}/>
         
@@ -55,7 +65,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    // alignItems: 'center',
     justifyContent: 'flex-start',
   },
   calendar:{
