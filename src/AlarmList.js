@@ -7,12 +7,24 @@ import { StyleSheet, Text, View, Button, FlatList, Switch} from 'react-native';
 // const toggleModal = () => {
 //   setModalVisible(!isModalVisible);
 // };
+
+
+
 const AlarmList = (props)=> {
+
+    const {data, onToggleSwitchHandler} = props;
+
+    const toggleSwitch = ({item})=>{
+        const {id, isEnabled} = Object(item);
+
+        onToggleSwitchHandler(id, isEnabled);
+        
+    }
 
     return (
         <View>
             <FlatList
-                data={props.data}
+                data={data}
                 renderItem={({item})=>(
                 <View style={styles.listItem}>
                     <View style={styles.alarmInfo}>
@@ -24,8 +36,8 @@ const AlarmList = (props)=> {
                             style={styles.switch}
                             trackColor={{ false: "#767577", true: "#81b0ff" }}
                             thumbColor={'white'}
-                            // ios_backgroundColor="#3e3e3e"
-                            // onValueChange={toggleSwitch}
+                            onChange={()=>toggleSwitch({item})}
+
                             value={item.isEnabled}
                         />
                     <View>
