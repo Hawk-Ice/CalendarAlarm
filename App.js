@@ -4,6 +4,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
 import Header from './src/Header';
 import AlarmList from './src/AlarmList';
+import FirstTypescript from './src/FirstTypescript';
 
 import AlarmModule from './src/AlarmModule';
 // type Employee = {

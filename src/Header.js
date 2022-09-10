@@ -26,8 +26,14 @@ const Header =({handleAddItem}) => {
     const InputModal = (props)=> {
       return (
         <View  visible={props.visible}>
-          {/* formik */}
-          <Formik
+          <FormikForm props={props}/>
+        </View>
+      );
+    }
+
+    const FormikForm = (props) =>{
+      return(
+        <Formik
             initialValues={{
               timestamp:'',
               notes:'',
@@ -66,12 +72,7 @@ const Header =({handleAddItem}) => {
                 </View>
               </Modal>
               }
-         
-
           </Formik>
-        
-        </View>
-
       );
     }
     
